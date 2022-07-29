@@ -25,8 +25,8 @@ setup(
     py_modules=["pytest_black"],
     python_requires=">=3.5",
     install_requires=[
-        "pytest>=3.5.0",
-        'black>=22.1.0"',
+        "black>=22.1.0",
+        "pytest>=7.0.0",
         "toml",
     ],
     use_scm_version=True,
