@@ -44,19 +44,14 @@ You can override default black configuration options by placing a `pyproject.tom
 Testing
 -------
 
-To run the tests against a selection of Python interpreters:
+To run the tests, simply run:
 
 ```
-$ tox
+$ pytest
+$ flake8
 ```
 
-To run against a specific interpreter (e.g. Python 3.6):
-
-```
-$ tox -e py36
-```
-
-The `tox.ini` file in the root of this repository is used to configure the test environment.
+CI takes care of running this against a selecting of Python versions.
 
 
 License
