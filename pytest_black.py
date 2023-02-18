@@ -18,11 +18,14 @@ def pytest_addoption(parser):
     group.addoption(
         "--black", action="store_true", help="enable format checking with black"
     )
+    group.addoption(
+        "--no-black", action="store_true", default=False, help="disable running black"
+    )
 
 
 def pytest_collect_file(file_path, path, parent):
     config = parent.config
-    if config.option.black and path.ext == ".py":
+    if config.option.black and not config.option.no_black and path.ext == ".py":
         return BlackFile.from_parent(parent, path=file_path)
 
 

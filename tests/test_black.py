@@ -24,6 +24,19 @@ def test_fail(testdir):
     result.assert_outcomes(failed=1)
 
 
+def test_disable(testdir):
+    """Assert no formatting check when black is disabled
+    """
+    testdir.makepyfile(
+        """
+        def hello():
+            print('Hello, world')
+    """
+    )
+    result = testdir.runpytest("--black", "--no-black")
+    result.assert_outcomes(failed=0, passed=0)
+
+
 def test_pass(testdir):
     """Assert test passes when no formatting issues are found
     """
